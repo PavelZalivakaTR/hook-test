@@ -1,3 +1,6 @@
-# Add 'label1' to any changes within 'example' folder or any subfolders
 DEV:
-  - test1/**/*
+  - any: ['src/main/**/*']
+QED:
+  - any: ['src/qed/**/*']
+SQL:
+  - any: ['databaseScripts/**/*']
