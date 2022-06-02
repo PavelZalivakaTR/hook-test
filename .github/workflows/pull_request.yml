@@ -1,0 +1,21 @@
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+jobs:
+  validate:
+    name: Validate pull request fields
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - uses: ./.github/actions/pull-request-validation
+        with:
+          title_regex: '^([0-9]+|N\/A|WIP).+$'
+          title_regex_flags: 'i'
+          labels_required: enhancement,bug
+          assignee_required: true
+          project_required: true
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
