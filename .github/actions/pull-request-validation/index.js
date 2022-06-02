@@ -37,8 +37,8 @@ async function run() {
         const pullRequest = await getPullRequest(client);
 
         const validationErrors = [
-            ...title.validatePullRequestTitle(pullRequest),
             ...labels.validatePullRequestLabels(pullRequest),
+            ...title.validatePullRequestTitle(pullRequest),
             ...assignees.validatePullRequestAssignees(pullRequest),
             ...await projects.validatePullRequestProjects(pullRequest, client),
         ];

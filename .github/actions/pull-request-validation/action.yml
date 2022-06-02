@@ -20,7 +20,7 @@ inputs:
 
   labels_required:
     description: 'Comma separated list of label names, of which the pull request must have at least one. eg: enhancement,bug'
-    default: ''
+    default: 'DEV,QED'
     required: true
 
   assignee_required:
