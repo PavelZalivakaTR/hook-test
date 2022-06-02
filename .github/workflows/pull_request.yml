@@ -13,9 +13,8 @@ jobs:
           node-version: '12.x'
       - uses: ./.github/actions/pull-request-validation
         with:
-          title_regex: '^([0-9]+|N\/A|WIP).+$'
-          title_regex_flags: 'i'
-          labels_required: enhancement,bug
+          title_regex: '^([0-9]+|N\/A|WIP) - .+$'
+          labels_required: DEV,QED
           assignee_required: true
-          project_required: true
+          project_required: false
           repo_token: ${{ secrets.GITHUB_TOKEN }}
