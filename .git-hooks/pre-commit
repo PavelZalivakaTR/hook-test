@@ -1,10 +1,10 @@
 #!/bin/bash
 
 BRANCH=$(git rev-parse --abbrev-ref HEAD)
-REGEX="^(feature|bugfix)-([0-9]+)-q([0-9]+)\.([0-9]+)\.(.+)$"
+REGEX="^(feature|bugfix|chore)/([0-9]+)-[a-z0-9_-]+$"
 
 if ! [[ $BRANCH =~ $REGEX ]]; then
   echo "Your commit was rejected due to branching name"
-  echo "Please rename your branch with '(dev|release)-YYYY-qX.X.X' syntax"
+  echo "Please rename your branch with '(feature|bugfix|chore)/(ado_story_id)-story-title' syntax"
   exit 1
 fi
